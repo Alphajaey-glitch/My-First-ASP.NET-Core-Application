@@ -21,7 +21,17 @@ namespace MyFirstApp
 
                 await context.Response.WriteAsync("<h1>Hello</h1>");
                 await context.Response.WriteAsync("<h2>World!<h2>");
+                
+                context.Response.Headers["Contemt-type"] = "text/html";
+                if (context.Request.Method == "GET")
+                {
+                    if (context.Request.Query.ContainsKey("id"))
+                    {
+                        string id = context.Request.Query["id"];
 
+                        await context.Response.WriteAsync($"<p>{id}</p>");
+                    }
+                }
             });
 
             app.Run();
