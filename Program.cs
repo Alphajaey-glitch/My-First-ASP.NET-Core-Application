@@ -15,7 +15,7 @@ namespace MyFirstApp
                 await context.Response.WriteAsync($"<p>{path}</p>");
                 await context.Response.WriteAsync($"<p>{method}</p>");
 
-                context.Response.Headers["MyKey"] = "My Value";
+                
                 context.Response.Headers["Content-Type"] = "text/html";
                 context.Request.Headers["Server"] = "My Server";
 
