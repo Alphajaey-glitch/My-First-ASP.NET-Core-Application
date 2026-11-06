@@ -11,11 +11,11 @@ namespace MyFirstApp
             {
                 context.Response.Headers["Content-Type"] = "text/html";
 
-                if (context.Request.Headers.ContainsKey("User-Agent"))
+                if (context.Request.Headers.ContainsKey("AuthorizationKey"))
                 {
-                    string userAgent = context.Request.Headers["User-Agent"];
+                    string auth = context.Request.Headers["AuthorizationKey"];
 
-                    await context.Response.WriteAsync($"<p>{userAgent}</p>");
+                    await context.Response.WriteAsync($"<p>{auth}</p>");
                 }
                 
             });
